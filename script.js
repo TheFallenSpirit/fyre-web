@@ -44,12 +44,12 @@ setTimeout(async () => {
         resetAutoSlide();
     });
 
-    await fetchTestimonials();
-    startAutoSlide();
+    const hasTestimonials = await fetchTestimonials();
+    if (hasTestimonials) startAutoSlide();
 }, 250);
 
 function startAutoSlide() {
-    if (testimonials.length > 0) intervalId = setInterval(nextTestimonial, 15_000);
+    intervalId = setInterval(nextTestimonial, 15_000);
 };
 
 function resetAutoSlide() {
@@ -69,8 +69,14 @@ function nextTestimonial() {
 
 async function fetchTestimonials() {
     const response = await fetch(`https://api.fyre.bot/testimonials`).catch(() => {});
-    if (!response?.ok) return;
 
+    if (!response?.ok) return false;
     const responseBody = await response.json();
-    if (responseBody.data.length > 0) testimonials = responseBody.data;
+
+    if (responseBody.data.length > 0) {
+        testimonials = responseBody.data;
+        return true;
+    }
+
+    return false;
 };
