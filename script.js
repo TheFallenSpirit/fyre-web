@@ -1,15 +1,15 @@
 // @ts-check
-const testimonials = [
+let testimonials = [
     {
         message: "Fyre is a great bot. Really fun to use, lots of features, and tons of quality of life improvements for you and your server. I highly recommend this gorgeous bot.",
         author: {
             name: "Fallen",
-            avatar: "https://cdn.discordapp.com/avatars/738746238874419220/a_b8d713e5a47e2026fe3b3d4cc30215e5.gif",
+            avatarUrl: "https://cdn.discordapp.com/avatars/738746238874419220/a_b8d713e5a47e2026fe3b3d4cc30215e5.gif",
             position: "Server Administrator"
         },
         guild: {
             name: "Fyre Hub",
-            icon: "https://cdn.discordapp.com/icons/1370922624397606952/d256f11d947495281740da772f62b8fa.webp"
+            iconUrl: "https://cdn.discordapp.com/icons/1370922624397606952/d256f11d947495281740da772f62b8fa.webp"
         }
     }
 ];
@@ -17,9 +17,17 @@ const testimonials = [
 let index = 0;
 let intervalId = 0;
 
+async function fetchTestimonials() {
+    const response = await fetch(`https://api.fyre.bot/testimonials`).catch(() => {});
+    if (!response?.ok) return;
+
+    const responseBody = await response.json();
+    testimonials = responseBody.data;
+    console.log(responseBody);
+};
+
 function renderTestimonial(index = 0) {
     const testimonial = testimonials[index];
-
     const indexElement = document.getElementById('testimonial-index');
     const messageElement = document.getElementById('testimonial-message');
 
@@ -30,7 +38,7 @@ function renderTestimonial(index = 0) {
     const guildName = document.getElementById('testimonial-guild-name');
 
     // @ts-expect-error
-    if (guildIcon) guildIcon.src = testimonial.guild.icon;
+    if (guildIcon) guildIcon.src = testimonial.guild.iconUrl;
     if (guildName) guildName.textContent = testimonial.guild.name;
 
     const authorNameElement = document.getElementById('testimonial-author-name');
@@ -38,7 +46,7 @@ function renderTestimonial(index = 0) {
     const authorPositionElement = document.getElementById('testimonial-author-position');
 
     // @ts-expect-error
-    if (authorAvatarElement) authorAvatarElement.src = testimonial.author.avatar;
+    if (authorAvatarElement) authorAvatarElement.src = testimonial.author.avatarUrl;
     if (authorPositionElement) authorPositionElement.textContent = testimonial.author.position;
     if (authorNameElement) authorNameElement.textContent = testimonial.author.name;
 };
@@ -62,7 +70,7 @@ function nextTestimonial() {
     renderTestimonial(index);
 };
 
-setTimeout(() => {
+setTimeout(async () => {
     document.getElementById('prev-testimonial')?.addEventListener('click', () => {
         prevTestimonial();
         resetAutoSlide();
@@ -72,7 +80,8 @@ setTimeout(() => {
         nextTestimonial();
         resetAutoSlide();
     });
-    
+
+    await fetchTestimonials();
     renderTestimonial(0);
 }, 250);
 
