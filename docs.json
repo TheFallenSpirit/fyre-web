@@ -86,6 +86,7 @@
 				"pages": [
 					"docs/guides/vip",
 					"docs/guides/config",
+					"docs/guides/buying",
 					"docs/guides/automation"
 				]
 			},
@@ -101,12 +102,12 @@
 					"docs/modules/last-fm",
 					"docs/modules/activity",
 					"docs/modules/join-gate",
+					"docs/modules/media",
 					"docs/modules/purge",
 					"docs/modules/responses",
 					"docs/modules/threads",
 					"docs/modules/time",
 					"docs/modules/backup",
-					"docs/modules/media",
 					{
 						"icon": "tickets",
 						"group": "Tickets",
