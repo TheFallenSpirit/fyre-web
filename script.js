@@ -73,7 +73,7 @@ async function fetchTestimonials() {
     if (!response?.ok) return false;
     const responseBody = await response.json();
 
-    if (responseBody.data.length > 0) {
+    if (responseBody.data && responseBody.data.length > 0) {
         testimonials = responseBody.data;
         return true;
     }
