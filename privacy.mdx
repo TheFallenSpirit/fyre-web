@@ -42,14 +42,15 @@ a ticket is created for you in a server, or you claim a ticket:
 Your user identifier ("User ID"), username, display name (if set), avatar url (if set),
 and the answers to any questions you answered while making the ticket.
 
-    Ticket data is stored permanently, unless deleted at request of the server.
+    Ticket data is stored for 3 months, unless deleted at request of the server.
 
 
 ## Data Fyre Shares
 1. Last.fm usernames and session keys.
 Fyre will share your Last.fm username and session key with Last.fm when you use Last.fm related commands.
 
-Fyre doesn't share any data with external services unless the data originated from those services.
+2. Voice message audio content.
+Fyre will send voice messages to a private, self hosted speech-to-text LLM when using the transcribe commands.
 
 
 ## Data Protection
@@ -61,19 +62,12 @@ Sensitive data like message content is only stored in memory, and never leaves F
 All encrypted data that Fyre stores uses AES-256-GCM.
 
 
-## Viewing and Deleting data
-1. Viewing your data. You can view all stored data related to your user by using `/home`,
-selecting the "Advanced" tab, and clicking/pressing "View Data".
-After your data is collected, it will be delivered to you via Direct Message.
-
-2. Deleting your data. You can delete all stored data related to your user by using `/home`,
-selecting the "Advanced" tab, and clicking/pressing "Request Data Deletion".
-We will delete all requested data within 10 business days,
-and you will be Direct Messaged confirming your data deletion.
+## Viewing and Deleting Data
+To view or delete your data, open a ticket in [Fyre Hub](https://discord.gg/SNxqD4ujTF).
 
 <Warning>
 Deleting your data will result in losing your access to Fyre, as your license data will also be deleted.
 Proceed with caution, and contact the Fyre Team in [Fyre Hub](https://discord.gg/SNxqD4ujTF) if you have any questions or concerns.
 </Warning>
 
-Fyre Bot Privacy Policy - Revision 1.1 - Last updated June 27th, 2025.
+Fyre Bot Privacy Policy - Revision 1.2 - Last updated March 14th, 2026.
