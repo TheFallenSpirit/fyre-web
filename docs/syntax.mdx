@@ -11,11 +11,12 @@ If you have forgotten the prefix, simply ping/mention Fyre and it will respond w
 ## Text Command Syntax
 By default, Fyre has 3 ways to specify options in text commands.
 
-For commands that only have 1 or 2 options, or all options are required
+For commands that have no flag options, or all options are required
 (eg. ticket staff commands) the syntax is `>command <option-1> <option-2>`.
 
-For the rest of Fyre's text commands, the syntax is
-`>command --option-1 value1 --option-2 value2` or `>command option-1: value1 option-2: value2`.
+For commands with flag options (options beginning with `--`), the syntax is:
+`>command --option 1 value-1 --option-2 value-2` or `>command option-1: value-1 option-2 value-2`.
+Flag options are **always optional**.
 
 You can use `--option` or `option:` interchangeably in commands as you please.
 There is no need for quotes around values, as values include spaces by default.
@@ -29,4 +30,4 @@ If you see a list of options separated by `/`, this is a list of the valid value
 You might also see `@user`, `@role`, or `#channel`. These options don't specifically require a user, role, or channel mention.
 You can also provide a user, role, or channel ID in place of the mention and it Fyre will treat it the same.
 
-If you need help with a command's syntax, simply use the command with no options provided `>command`.
+To view a command's syntax, use the command with no options provided (eg. `>command`).
