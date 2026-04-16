@@ -2,10 +2,23 @@
 let index = 0;
 let intervalId = 0;
 
+const defaultMessage = [
+    `"Fyre is a great bot. Really fun to use, lots of features, `,
+    `and tons of quality of life improvements for you and your server. `,
+    `I highly recommend this gorgeous bot." (Placeholder)`
+].join('')
+
 let testimonials = [{
-    message: '',
-    guild: { name: '', iconUrl: '' },
-    author: { name: '', position: '', avatarUrl: '' }
+    message: defaultMessage,
+    guild: {
+        name: 'Fyre Hub',
+        iconUrl: 'https://cdn.discordapp.com/icons/1370922624397606952/d256f11d947495281740da772f62b8fa.webp'
+    },
+    author: {
+        name: 'Anonymous',
+        position: 'Super Secret Server Spy (Placeholder)',
+        avatarUrl: 'https://cdn.discordapp.com/avatars/1457042852579377152/c4fc4fdae811bb52bad18ac4206d7991.webp'
+    }
 }];
 
 function renderTestimonial(index = 0) {
