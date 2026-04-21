@@ -1,7 +1,7 @@
 ---
 icon: 'message-circle-code'
-title: 'Message Templates'
-description: "Learn about Fyre's message templating system and how to customise Fyre's messages."
+title: 'Template Builder'
+description: "Learn about Fyre's message template builder and how to customise Fyre's messages."
 ---
 
 Fyre features a message templating system allowing you to replace messages that the app sends throughout your Discord server.
@@ -11,15 +11,16 @@ This templating system allows you to build embeds/containers or plaintext messag
 To create a new message template, use `/templates create`.
 This command supports the following options:
 
-- `type`: The type of template to create (plaintext or container).
-- `colour`: The colour (hex code) to use for the container colour.
+- `name` - The name of the new template (max 32 chars).
+- `empty` - If the template should be empty (no default components, default: No).
+- `preset` - A built in message template preset with components and settings (autocomplete).
 
-A modal will be brought up where you can provide a name for your template, and the template code itself.
+After using the command, Fyre will bring up the template builder.
 
 
 ## Updating a Template
 To update an existing message template, use `/templates update`.
-This command supports the same options as the create command, and will bring up the same modal.
+This command will bring up the template builder, same as the create command.
 
 
 ## Using Templates

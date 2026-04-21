@@ -123,8 +123,7 @@
 				"pages": [
 					"docs/templating/syntax",
 					"docs/templating/variables",
-					"docs/templating/message-templates",
-					"docs/templating/defaults"
+					"docs/templating/builder"
 				]
 			},
 			{

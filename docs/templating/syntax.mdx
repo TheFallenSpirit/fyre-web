@@ -1,8 +1,8 @@
 ---
 icon: 'code'
 title: 'Template Syntax'
+description: "Learn about Fyre's message template syntax and how it can be used to level-up your customisation."
 sidebarTitle: 'Syntax'
-description: "Learn about Fyre's template syntax and where it can be used to level-up your customisation."
 ---
 
 <Info>
@@ -146,5 +146,33 @@ and [Dayjs Advanced](https://day.js.org/docs/en/plugin/advanced-format) formatti
 
 ```txt Result
 01/01/2000 00:00
+```
+</CodeGroup>
+
+
+### Format List
+You can use the `formatList` helper to join an array of items into a string.
+
+<CodeGroup>
+```handlebars Template
+{{formatList afk.mentionLinks ", "}}
+```
+
+```txt Result
+https://discord.com/channels/1370922624397606952/1374080670304833547/1496128374199025674, https://discord.com/channels/1370922624397606952/1374080670304833547/1480784410482708731, https://discord.com/channels/1370922624397606952/1374080670304833547/1466002583016706193
+```
+</CodeGroup>
+
+
+### Capital Case
+Capitalize the first letter of every word in a sentence.
+
+<CodeGroup>
+```handlebars Template
+{{capitalCase "Hello, this is a test!"}}
+```
+
+```txt Result
+Hello, This Is A Test!
 ```
 </CodeGroup>
